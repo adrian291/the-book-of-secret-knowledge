@@ -4423,3 +4423,12 @@ shell> GetASN 1.1.1.1
 shell> GetASN 0.0.0.0
 Unsuccessful ASN gathering.
 ```
+  
+###### Kubernetes useful commands
+  
+##### Get external IP for all nodes
+  
+```
+kubectl get nodes --selector=kubernetes.io/role!=master -o jsonpath={.items[*].status.addresses[?\(@.type==\"ExternalIP\"\)].address}
+```
+
