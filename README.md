@@ -4431,4 +4431,8 @@ Unsuccessful ASN gathering.
 ```
 kubectl get nodes --selector=kubernetes.io/role!=master -o jsonpath={.items[*].status.addresses[?\(@.type==\"ExternalIP\"\)].address}
 ```
+  
+```
+kubectl run my-shell --rm -i --tty --image ubuntu -- bash
+```
 
