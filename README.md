@@ -4436,3 +4436,8 @@ kubectl get nodes --selector=kubernetes.io/role!=master -o jsonpath={.items[*].s
 kubectl run my-shell --rm -i --tty --image ubuntu -- bash
 ```
 
+##### Get cert details in cluster
+
+```
+kubectl get ing --all-namespaces -o json | jq -r '.items[].spec.rules[].host' | xargs -I{} nmap -p 443 --script ssl-cert {}
+```
